@@ -1,0 +1,139 @@
+.game-board {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+}
+
+/* Grid Lines */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.grid-line {
+  position: absolute;
+  background: var(--border-color);
+}
+
+.grid-line.horizontal {
+  left: 0;
+  right: 0;
+  height: 1px;
+}
+
+.grid-line.vertical {
+  top: 0;
+  bottom: 0;
+  width: 1px;
+}
+
+/* Board Cells */
+.board-cells {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.board-row {
+  display: flex;
+  flex: 1;
+}
+
+.cell {
+  flex: 1;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cell:not(:disabled):active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+}
+
+.cell-content {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 5vw, 1.75rem);
+  font-weight: 700;
+  transition: all var(--transition-normal);
+}
+
+/* X Cell */
+.cell.x .cell-content {
+  color: var(--color-x);
+  text-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+  animation: popIn 0.2s ease-out;
+}
+
+/* O Cell */
+.cell.o .cell-content {
+  color: var(--color-o);
+  text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+  animation: popIn 0.2s ease-out;
+}
+
+/* Highlighted Cell (for new lines) */
+.cell.highlighted {
+  animation: pulseHighlight 0.5s ease-in-out 3;
+}
+
+.cell.highlighted.x {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.cell.highlighted.o {
+  background: rgba(59, 130, 246, 0.2);
+}
+
+/* Animations */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseHighlight {
+  0%, 100% {
+    background: transparent;
+  }
+  50% {
+    background: rgba(245, 158, 11, 0.3);
+  }
+}
+
+/* Responsive */
+@media (min-width: 400px) {
+  .game-board {
+    max-width: 360px;
+  }
+  
+  .cell-content {
+    font-size: 2rem;
+  }
+}

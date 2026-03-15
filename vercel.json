@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/api/auth",
+      "destination": "/api/auth/index.js"
+    },
+    {
+      "source": "/api/auth/(.*)",
+      "destination": "/api/auth/index.js"
+    },
+    {
+      "source": "/api/user",
+      "destination": "/api/user/index.js"
+    },
+    {
+      "source": "/api/user/(.*)",
+      "destination": "/api/user/$1"
+    },
+    {
+      "source": "/api/lobby",
+      "destination": "/api/lobby/index.js"
+    },
+    {
+      "source": "/api/lobby/(.*)",
+      "destination": "/api/lobby/$1"
+    },
+    {
+      "source": "/api/game",
+      "destination": "/api/game/index.js"
+    },
+    {
+      "source": "/api/game/(.*)",
+      "destination": "/api/game/$1"
+    },
+    {
+      "source": "/api/leaderboard",
+      "destination": "/api/leaderboard/index.js"
+    },
+    {
+      "source": "/api/leaderboard/(.*)",
+      "destination": "/api/leaderboard/index.js"
+    },
+    {
+      "source": "/api/subscription",
+      "destination": "/api/subscription/index.js"
+    },
+    {
+      "source": "/api/subscription/(.*)",
+      "destination": "/api/subscription/index.js"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

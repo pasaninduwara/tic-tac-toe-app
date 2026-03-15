@@ -1,0 +1,190 @@
+.leaderboard-page {
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+  animation: fadeIn var(--transition-slow) forwards;
+}
+
+.leaderboard-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.page-title {
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.page-subtitle {
+  color: var(--text-secondary);
+}
+
+/* Period Tabs */
+.period-tabs {
+  display: flex;
+  gap: var(--spacing-xs);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+  scrollbar-width: none;
+}
+
+.period-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.period-tab {
+  flex-shrink: 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.period-tab:hover {
+  background: var(--bg-card-hover);
+}
+
+.period-tab.active {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+}
+
+/* Leaderboard List */
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.leaderboard-entry {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md);
+  transition: all var(--transition-fast);
+}
+
+.leaderboard-entry:hover {
+  border-color: var(--border-color-light);
+}
+
+.leaderboard-entry.current-user {
+  border-color: var(--accent-primary);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.entry-rank {
+  width: 32px;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.entry-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--bg-primary);
+}
+
+.entry-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.entry-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.entry-stats {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.entry-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.score-value {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+.score-label {
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Loading & Empty States */
+.loading-state,
+.error-state,
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+.error-state button {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* User Rank Card */
+.user-rank-card {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+.user-rank-card p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
